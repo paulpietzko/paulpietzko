@@ -1,16 +1,21 @@
-### Hi there 👋
+<img align="right" src="https://visitor-badge.loabi.icu/badge?page_id=paulpietzko.paulpietzko" />
 
-<!--
-**paulpietzko/paulpietzko** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<h1 align "center">
+  Hi, I'm Paul Pietzko a passionate 
+  <img src="https://readme-typing-svg.herokuapp.com/?
+    font=Righteous&size35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=+Software+Developer;+Indie+Game+Dev;Student;" />
+</h1>
 
-Here are some ideas to get you started:
+<h3 align="center">from Switzerland CH</h3>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<br/>
+
+<div align="center">
+  Currently I'm working on a **Geo Gueser Game**
+  and learning **Angular 17**, **Next.js**
+</div>
+
+<div align="center">
+  <a href="mailto:paul.pietzko@icloud.com
+</div>
+  
