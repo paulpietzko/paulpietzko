@@ -1,5 +1,3 @@
-<img align="right" src="https://visitor-badge.loabi.icu/badge?page_id=paulpietzko.paulpietzko" />
-
 <h1 align="center">
   <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Rubik&weight=600&size=35&duration=4000&pause=1000&color=3380F7&center=true&random=false&width=500&height=70&lines=A+Student;A+Software+Developer;A+Indie+Game+Dev" alt="Typing SVG" /></a>
 </h1>
