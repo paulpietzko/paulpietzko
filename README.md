@@ -15,8 +15,8 @@
 <br/>
 
 <div align="center">
-    <img src="https://skillicons.dev/icons?i=angular,nextjs,java,flutter,vscode,github,tailwind," /><br>
-    <img src="https://skillicons.dev/icons?i=nodejs,express,firebase,mongodb,mysql, figma" /><br>
+    <img src="https://skillicons.dev/icons?i=angular,nextjs,java,flutter,vscode,github,tailwind" /><br>
+    <img src="https://skillicons.dev/icons?i=nodejs,express,firebase,mongodb,mysql,figma" /><br>
 </div>
 
 <br/>
@@ -24,7 +24,7 @@
 
 <h2>Experience</h2>
 
-<img src="https://www.paulpietzko.com/files/timeline.png" width="50%" /><be>
+<img src="https://www.paulpietzko.com/files/timeline.png" width="50%" /><br>
 </div>
 
 <div align="center">
