@@ -8,19 +8,7 @@
   Currently I'm working on a <strong>Geo Gueser Game</strong> <br/>
   and learning <strong>Angular 17</strong>, <strong>Next.js</strong>
 </div>
-
-<div align="center">
-  <br/>
-  <a href="https://www.paulpietzko.com">
-    <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white" target="_blank" rel="noopener noreferrer" />
-  </a>
-  <a href="https://www.linkedin.com/in/paulpietzko/">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank" rel="noopener noreferrer" />
-  </a>
-  <a href="mailto:paul.pietzko@icloud.com">
-    <img src="https://img.shields.io/badge/Mail-333333?style=for-the-badge&logo=gmail&logoColor=red" target="_blank" rel="noopener noreferrer" />
-  </a>
-</div>
+<br/>
 
 <h2 align="center">Skills</h2>
 
@@ -39,4 +27,15 @@
 <img src="https://www.paulpietzko.com/files/timeline.png" width="50%" /><be>
 </div>
 
-<br/><br/>
+<div align="center">
+  <br/>
+  <a href="https://www.paulpietzko.com">
+    <img src="https://img.shields.io/badge/Portfolio-333333?style=for-the-badge&logo=todoist&logoColor=green" target="_blank" rel="noopener noreferrer" />
+  </a>
+  <a href="https://www.linkedin.com/in/paulpietzko/">
+    <img src="https://img.shields.io/badge/LinkedIn-333333?style=for-the-badge&logo=linkedin&logoColor=blue" target="_blank" rel="noopener noreferrer" />
+  </a>
+  <a href="mailto:paul.pietzko@icloud.com">
+    <img src="https://img.shields.io/badge/Mail-333333?style=for-the-badge&logo=gmail&logoColor=red" target="_blank" rel="noopener noreferrer" />
+  </a>
+</div>
