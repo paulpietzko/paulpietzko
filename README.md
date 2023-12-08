@@ -23,7 +23,7 @@
 <div align="center">
 
 <h2>Experience</h2>
-
+<br>
 <img src="https://www.paulpietzko.com/files/timeline.png" width="50%" /><br>
 </div>
 
