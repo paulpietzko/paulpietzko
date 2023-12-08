@@ -22,8 +22,6 @@
   </a>
 </div>
 
-<hr>
-
 <h2 align="center">Skills</h2>
 
 <br/>
@@ -34,6 +32,11 @@
 </div>
 
 <br/>
-<hr/>
+<div align="center">
+
+<h2>Experience</h2>
+
+<img src="https://www.paulpietzko.com/files/timeline.png" width="50%" /><be>
+</div>
 
 <br/><br/>
