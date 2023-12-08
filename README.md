@@ -5,7 +5,7 @@
 <h3 align="center">from Switzerland CH</h3>
 
 <div align="center">
-  Currently I'm working on a <strong>Geo Gueser Game</strong> <br/>
+  Currently working on a <strong>Geo Gueser Game</strong> <br/>
   and learning <strong>Angular 17</strong>, <strong>Next.js</strong>
 </div>
 <br/>
