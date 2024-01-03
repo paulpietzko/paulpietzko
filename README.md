@@ -24,7 +24,7 @@
 
 <h2>Experience</h2>
 <br>
-<img src="https://www.paulpietzko.com/files/timeline.png" width="50%" /><br>
+<img src="http://www.paulpietzko.com/files/timeline.png" width="50%" /><br>
 </div>
 
 <div align="center">
