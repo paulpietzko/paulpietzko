@@ -15,7 +15,7 @@
 <br/>
 
 <div align="center">
-    <img src="https://skillicons.dev/icons?i=angular,nextjs,java,flutter,vscode,github,tailwind" /><br>
+    <img src="https://skillicons.dev/icons?i=angular,nextjs,godot,java,flutter,github,tailwind" /><br>
     <img src="https://skillicons.dev/icons?i=nodejs,express,firebase,mongodb,mysql,figma" /><br>
 </div>
 
