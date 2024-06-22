@@ -6,7 +6,7 @@
 
 <div align="center">
   Currently working on a <strong>Social Media App</strong> <br/>
-  and learning <strong>Angular 17</strong>, <strong>Next.js</strong> and <strong>Godot 4</strong>  
+  and learning <strong>Angular 18</strong>, <strong>Next.js</strong> and <strong>Godot 4</strong>  
 </div>
 <br/>
 
