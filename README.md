@@ -15,4 +15,6 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
+![Unique Views](https://img.shields.io/badge/unique_views-{count}-brightgreen)
+
 ![](https://komarev.com/ghpvc/?username=paulpietzko)
