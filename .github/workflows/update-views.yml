@@ -1,4 +1,5 @@
 name: Update Unique Views
+
 on:
   workflow_dispatch:
   push:
@@ -7,6 +8,7 @@ on:
 
 jobs:
   update-views:
+    if: github.repository_owner == github.actor # Prevent forks from running
     runs-on: ubuntu-latest
 
     steps:
@@ -18,15 +20,22 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Update unique views
+    - name: Install jq
+      run: sudo apt-get install -y jq
+
+    - name: Run Update Views Script
       run: |
-        echo "{}" >> views.json # Only if this is the first run
         node scripts/updateViews.js
+
+    - name: Update README with unique views
+      run: |
+        COUNT=$(jq '.uniqueViews' views.json)
+        sed -i "s/unique_views-[0-9]\+/unique_views-$COUNT/" README.md
 
     - name: Commit and push changes
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add views.json
+        git add views.json README.md
         git commit -m "Update views count"
         git push
