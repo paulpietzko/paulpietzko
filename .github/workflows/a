@@ -1,0 +1,32 @@
+name: Update Unique Views
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: '0 0 * * *' # Daily updates
+
+jobs:
+  update-views:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Update unique views
+      run: |
+        echo "{}" >> views.json # Only if this is the first run
+        node scripts/updateViews.js
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add views.json
+        git commit -m "Update views count"
+        git push
