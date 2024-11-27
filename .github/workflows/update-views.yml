@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '0 0 * * *' # Daily updates
 
 jobs:
   update-views:
