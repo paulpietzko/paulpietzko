@@ -9,7 +9,7 @@ interface ViewData {
 }
 
 export default async (_req: VercelRequest, res: VercelResponse) => {
-  const filePath = path.join('../data', 'views.json');
+  const filePath = path.join('/tmp', 'views.json');
   let data: ViewData = {
     totalViews: 0,
     uniqueViews: 0,
