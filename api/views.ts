@@ -1,50 +1,62 @@
+// api/views.ts
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { promises as fs } from 'fs';
-import path from 'path';
+import mongoose from 'mongoose';
 
-interface ViewData {
-  totalViews: number;
-  uniqueViews: number;
-  visitors: string[];
+const uri = process.env.MONGODB_URI!;
+
+let cachedDb: typeof mongoose | null = null;
+
+async function connectToDatabase() {
+  if (cachedDb) {
+    return cachedDb;
+  }
+
+  const client = await mongoose.connect(uri);
+  cachedDb = client;
+  return client;
 }
 
+// Reuse the same schema and model
+const viewSchema = new mongoose.Schema({
+  ipHash: { type: String, unique: true },
+  createdAt: { type: Date, default: Date.now },
+});
+
+const View = mongoose.models.View || mongoose.model('View', viewSchema);
+
 export default async (req: VercelRequest, res: VercelResponse) => {
-  const filePath = path.join('/tmp', 'views.json');
-  let data: ViewData = {
-    totalViews: 0,
-    uniqueViews: 0,
-    visitors: [],
-  };
-
-  // Read existing data
   try {
-    const fileData = await fs.readFile(filePath, 'utf8');
-    data = JSON.parse(fileData) as ViewData;
-  } catch (err) {
-    // File doesn't exist; starting fresh
-    console.error('Views file not found, starting with defaults.');
+    await connectToDatabase();
+
+    // Get the metric parameter from query string
+    const metric = req.query.metric;
+
+    // Get counts from the database
+    const uniqueViews = await View.countDocuments();
+    const totalViews = uniqueViews; // Since we're only tracking unique views in this setup
+
+    // Prepare data for Shields.io
+    let label = 'Unique Views';
+    let message = uniqueViews.toString();
+    let color = 'green';
+
+    if (metric === 'total') {
+      label = 'Total Views';
+      message = totalViews.toString();
+      color = 'blue';
+    }
+
+    const responseData = {
+      schemaVersion: 1,
+      label,
+      message,
+      color,
+    };
+
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(responseData);
+  } catch (error) {
+    console.error('Error in views function:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
-
-  // Determine which metric to return based on query parameter
-  const metric = req.query.metric;
-  let label = 'Unique Views';
-  let message = data.uniqueViews.toString();
-  let color = 'green';
-
-  if (metric === 'total') {
-    label = 'Total Views';
-    message = data.totalViews.toString();
-    color = 'blue';
-  }
-
-  // Return data in Shields.io format
-  const responseData = {
-    schemaVersion: 1,
-    label: label,
-    message: message,
-    color: color,
-  };
-
-  res.setHeader('Content-Type', 'application/json');
-  res.status(200).json(responseData);
 };

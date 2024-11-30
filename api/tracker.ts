@@ -1,45 +1,49 @@
+// api/tracker.ts
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { promises as fs } from 'fs';
-import path from 'path';
+import mongoose from 'mongoose';
+import crypto from 'crypto';
 
-interface ViewData {
-  totalViews: number;
-  uniqueViews: number;
-  visitors: string[];
+const uri = process.env.MONGODB_URI!;
+
+let cachedDb: typeof mongoose | null = null;
+
+async function connectToDatabase() {
+  if (cachedDb) {
+    return cachedDb;
+  }
+
+  const client = await mongoose.connect(uri);
+  cachedDb = client;
+  return client;
 }
 
-export default async (req: VercelRequest, res: VercelResponse) => {
-  const filePath = path.join('/tmp', 'views.json');
-  let data: ViewData = {
-    totalViews: 0,
-    uniqueViews: 0,
-    visitors: [],
-  };
+// Define a schema and model for views
+const viewSchema = new mongoose.Schema({
+  ipHash: { type: String, unique: true },
+  createdAt: { type: Date, default: Date.now },
+});
 
+const View = mongoose.models.View || mongoose.model('View', viewSchema);
+
+export default async (req: VercelRequest, res: VercelResponse) => {
   try {
-    // Read existing data
-    try {
-      const fileData = await fs.readFile(filePath, 'utf8');
-      data = JSON.parse(fileData) as ViewData;
-    } catch (err) {
-      // File doesn't exist or can't be read; initialize new data
-      console.log('No existing data found, initializing.');
-    }
+    await connectToDatabase();
 
     // Get viewer's IP
-    const viewer = Array.isArray(req.headers['x-forwarded-for'])
+    const viewerIP = Array.isArray(req.headers['x-forwarded-for'])
       ? req.headers['x-forwarded-for'][0]
       : (req.headers['x-forwarded-for'] as string) || req.socket.remoteAddress || '';
 
-    if (viewer && !data.visitors.includes(viewer)) {
-      data.visitors.push(viewer);
-      data.uniqueViews = data.visitors.length;
+    // Hash the IP for privacy
+    const viewerHash = crypto.createHash('sha256').update(viewerIP).digest('hex');
+
+    // Check if viewer already exists
+    const existingView = await View.findOne({ ipHash: viewerHash });
+
+    if (!existingView) {
+      // Save new unique view
+      await View.create({ ipHash: viewerHash });
     }
-
-    data.totalViews += 1;
-
-    // Save updated data
-    await fs.writeFile(filePath, JSON.stringify(data));
 
     // Return a 1x1 pixel GIF
     const img = Buffer.from(
