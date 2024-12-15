@@ -1,4 +1,3 @@
-// api/tracker.ts
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import mongoose from 'mongoose';
 import crypto from 'crypto';

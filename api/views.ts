@@ -1,4 +1,3 @@
-// api/views.ts
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import mongoose from 'mongoose';
 

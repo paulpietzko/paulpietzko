@@ -1,7 +1,7 @@
 ## Hi there 👋
 
 ### Unique Views
-![Unique Views](https://img.shields.io/endpoint?url=https://paulpietzko-readme.vercel.app/api/views?metric=unique&cacheSeconds=3600)
+![Unique Views](https://img.shields.io/endpoint?url=https://paulpietzko-readme.vercel.app/api/views?metric=unique&cacheSeconds=1800)
 
 ### Total Views
 ![Profile view counter on GitHub](https://komarev.com/ghpvc/?username=paulpietzko)
