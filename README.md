@@ -6,6 +6,7 @@ I'm Paul, a junior software developer.
 🅰️ Angular
 🚀 Astro
 ☕ Java
+©️ C# and .NET
 🦀 Rust (hobbyist, but I'd like to learn more!)
 🐘 PostgreSQL
 
